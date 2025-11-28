@@ -16,7 +16,7 @@ jobs:
 
       - name: Read state value
         id: read_state
-        run: echo "value=$(cat .github/badge-state.json)" >> $GITHUB_OUTPUT
+        run: echo "value=$(cat .github/badge-state.txt)" >> $GITHUB_OUTPUT
 
       - name: Create badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
