@@ -1,0 +1,29 @@
+name: Dynamic Badge Update
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/badge-state.json"
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Read state value
+        id: read_state
+        run: echo "value=$(cat .github/badge-state.json)" >> $GITHUB_OUTPUT
+
+      - name: Create badge
+        uses: Schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.GITHUB_TOKEN }}
+          gistID: ${{ secrets.BADGE_GIST_ID }}
+          filename: demo-badge.json
+          label: "Demo Score"
+          message: ${{ steps.read_state.outputs.value }}
+          color: green
