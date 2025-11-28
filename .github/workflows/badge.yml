@@ -21,7 +21,7 @@ jobs:
       - name: Create badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
         with:
-          auth: ${{ secrets.GITHUB_TOKEN }}
+          auth: ${{ secrets.GIST_TOKEN }}
           gistID: ${{ secrets.BADGE_GIST_ID }}
           filename: demo-badge.json
           label: "Demo Score"
