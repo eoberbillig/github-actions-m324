@@ -1,1 +1,6 @@
-66
+{
+  "schemaVersion": 1,
+  "label": "Demo Badge",
+  "message": "test",
+  "color": "blue"
+}
